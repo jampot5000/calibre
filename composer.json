@@ -1,7 +1,7 @@
 {
     "name": "jampot5000/calibre",
     "description": "Interface between laravel and calibre database and files",
-    "keywords": ["calibre", "laravel",'ebook'],
+    "keywords": ["calibre", "laravel","ebook"],
     "homepage": "https://github.com/jampot5000/calibre",
     "require": {
         "illuminate/database": "^5.1"
