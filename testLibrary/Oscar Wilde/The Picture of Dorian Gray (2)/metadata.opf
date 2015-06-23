@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">2</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">81f51458-1792-4ee2-8ef3-3d239503e2d0</dc:identifier>
+        <dc:title>The Picture of Dorian Gray</dc:title>
+        <dc:creator opf:file-as="Wilde, Oscar" opf:role="aut">Oscar Wilde</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (1.42.0) [http://calibre-ebook.com]</dc:contributor>
+        <dc:date>1891-06-22T00:00:00+00:00</dc:date>
+        <dc:description>Oscar Wilde’s story of a fashionable young man who sells his soul for eternal youth and beauty is one of his most popular works. Written in Wilde’s characteristically dazzling manner, full of stinging epigrams and shrewd observations, the tale of Dorian Gray’s moral disintegration caused something of a scandal when it first appeared in 1890. Wilde was attacked for his decadence and corrupting influence, and a few years later the book and the aesthetic/moral dilemma it presented became issues in the trials occasioned by Wilde’s homosexual liaisons, trials that resulted in his imprisonment. Of the book’s value as autobiography, Wilde noted in a letter, “Basil Hallward is what I think I am: Lord Henry what the world thinks me: Dorian what I would like to be—in other ages, perhaps.”</dc:description>
+        <dc:publisher>MobileRead</dc:publisher>
+        <dc:language>eng</dc:language>
+        <dc:subject>Didactic fiction</dc:subject>
+        <dc:subject>Conduct of life – Fiction</dc:subject>
+        <dc:subject>Portraits – Fiction</dc:subject>
+        <meta content="{&quot;Oscar Wilde&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2015-06-22T22:39:12.288000+00:00" name="calibre:timestamp"/>
+        <meta content="Picture of Dorian Gray, The" name="calibre:title_sort"/>
+    </metadata>
+    <guide>
+        <reference href="cover.jpg" title="Cover" type="cover"/>
+    </guide>
+</package>

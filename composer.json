@@ -1,0 +1,22 @@
+{
+    "name": "jampot5000/calibre-interface",
+    "description": "Interface between laravel and calibre",
+    "require": {
+        "illuminate/database": "^5.1"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^2.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jamie Holcroft",
+            "email": "jholcroft@gmail.com"
+        }
+    ],
+  "autoload": {
+    "psr-4": {
+      "jampot5000\\calibre\\": "src/"
+    }
+  }
+}
