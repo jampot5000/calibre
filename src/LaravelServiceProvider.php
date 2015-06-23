@@ -6,17 +6,12 @@ use Illuminate\Support\ServiceProvider;
 
 class LaravelServiceProvider extends ServiceProvider
 {
-
-
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/config.php' => config_path('calibre.php'),
-        ]);
-
-        if(!$this->app->routesAreCached())
-        {
-            require __DIR__.'/routes.php';
+        $this->setupConfig();
+        $this->addDatabaseConnection();
+        if (!$this->app->routesAreCached()) {
+            include __DIR__.'/routes.php';
         }
     }
 
@@ -29,17 +24,22 @@ class LaravelServiceProvider extends ServiceProvider
 
     public function register()
     {
-
-        $this->setupConfig();
-        $this->addDatabaseConnection();
-
+        $this->app->singleton(
+            'CalibreInterface',
+            function ($app) {
+                return new CalibreInterface($app->config['calibre']);
+            }
+        );
     }
 
     private function setupConfig()
     {
-
+        $this->publishes(
+            [
+            __DIR__.'/config.php' => config_path('calibre.php'),
+            ]
+        );
         $this->mergeConfigFrom(realpath(__DIR__.'./config.php'), 'calibre');
-
     }
 
     private function addDatabaseConnection()
@@ -49,6 +49,6 @@ class LaravelServiceProvider extends ServiceProvider
                         'database' => config('calibre.path') . '\\' . config('calibre.db'),
                         'prefix'   => '',
         ];
-        $this->app->make('config')->set('database.connections.calibre',$connection);
+        $this->app->make('config')->set('database.connections.calibre', $connection);
     }
 }

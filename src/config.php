@@ -10,7 +10,7 @@ return [
     | This should be the full path to the root calibre library folder.
     */
 
-    'path' => env('CALIBRE_PATH', '..\testLibrary'),
+    'path' => env('CALIBRE_PATH', '../testLibrary'),
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return [
     | Should the package register the download route?
     |
     */
-    'registerRoute' => env('registerRoute','true'),
+    'registerRoute' => env('registerRoute', 'true'),
 
     /*
     |--------------------------------------------------------------------------

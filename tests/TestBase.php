@@ -1,34 +1,30 @@
 <?php
+
+namespace Jampot5000\Calibre\Tests;
+
 use Illuminate\Database\Capsule\Manager as Capsule;
-function env($keyword, $default)
+
+abstract class TestBase extends \PHPUnit_Framework_TestCase
 {
-    return $default;
-}
-abstract class TestBase extends PHPUnit_Framework_TestCase {
-    private function setupDB($config){
-        $config = require __DIR__ . '/../src/config.php';
+    private function setupDB()
+    {
+        $config = include __DIR__ . '/../src/config.php';
         $capsule = new Capsule;
 
         $connection = [
             'driver'   => 'sqlite',
-            'database' => realpath(__DIR__.'\\'. $config['path'] . '\\' . $config['db']),
+            'database' => realpath(__DIR__.'/'. $config['path'] . '/' . $config['db']),
 
         ];
 
-        echo __DIR__. '\\'. $config['path'] . '\\' . $config['db'];
-        $capsule->addConnection($connection,'calibre');
+        echo __DIR__. '/'. $config['path'] . '/' . $config['db'];
+        $capsule->addConnection($connection, 'calibre');
 
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
     }
     public function setUp()
     {
-        $config = [
-            'path' => '..\\testLibrary',
-            'db'   => 'metadata.db'
-        ];
-
-        $this->setupDB($config);
+        $this->setupDB();
     }
-
 }

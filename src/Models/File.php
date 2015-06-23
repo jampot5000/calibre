@@ -14,9 +14,11 @@ class File extends Model
         return $this->belongsTo('Jampot5000\Calibre\Models\Book', 'book');
     }
 
-    public function getPathAttribute(){
-
-        return realpath($fullPath = app()->config['calibre']['path'] . '\\' . $this->book()->first()->path . "\\" . $this->name . '.' . $this->format);
+    public function getPathAttribute()
+    {
+        return realpath($fullPath = app()->config['calibre']['path']
+                        . '\\' . $this->book()->first()->path
+                        . "\\" . $this->name . '.' . $this->format);
     }
 
     protected $appends = ["path"];

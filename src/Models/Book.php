@@ -15,6 +15,6 @@ class Book extends Model
 
     public function files()
     {
-        return $this->hasMany('Jampot5000\Calibre\Models\File','book');
+        return $this->hasMany('Jampot5000\Calibre\Models\File', 'book');
     }
 }
