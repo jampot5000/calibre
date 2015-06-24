@@ -17,4 +17,9 @@ class Book extends Model
     {
         return $this->hasMany('Jampot5000\Calibre\Models\File', 'book');
     }
+
+    public function series()
+    {
+        return $this->belongsToMany('Jampot5000\Calibre\Models\Series', 'books_series_link', 'book', 'series');
+    }
 }

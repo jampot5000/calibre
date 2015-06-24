@@ -17,7 +17,7 @@ abstract class TestBase extends \PHPUnit_Framework_TestCase
 
         ];
 
-        echo __DIR__. '/'. $config['path'] . '/' . $config['db'];
+
         $capsule->addConnection($connection, 'calibre');
 
         $capsule->setAsGlobal();
