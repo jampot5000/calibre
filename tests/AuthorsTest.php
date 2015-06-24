@@ -4,13 +4,8 @@ namespace Jampot5000\Calibre\Tests;
 use Illuminate\Database\Eloquent\Collection;
 use Jampot5000\Calibre\Models\Author;
 
-class AuthorsTest extends TestBase
+class AuthorsTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-    }
-
     public function testCanGetAuthors()
     {
         $authors = Author::all();
