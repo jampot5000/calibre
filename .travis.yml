@@ -12,6 +12,10 @@ php:
   - hhvm
   - nightly
 
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 before_script:
   - composer self-update
