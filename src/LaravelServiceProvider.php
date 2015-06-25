@@ -3,6 +3,7 @@
 namespace Jampot5000\Calibre;
 
 use Illuminate\Support\ServiceProvider;
+use Jampot5000\Calibre\Config\LaravelCalibreConfig;
 
 class LaravelServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,7 @@ class LaravelServiceProvider extends ServiceProvider
         $this->app->singleton(
             'CalibreInterface',
             function ($app) {
-                return new CalibreInterface($app->config['calibre']);
+                return new CalibreInterface(new LaravelCalibreConfig($app->config['calibre']));
             }
         );
     }
@@ -36,19 +37,9 @@ class LaravelServiceProvider extends ServiceProvider
     {
         $this->publishes(
             [
-                __DIR__ . '/config.php' => config_path('calibre.php'),
+                __DIR__ . '/Config.php' => config_path('calibre.php'),
             ]
         );
-        $this->mergeConfigFrom(realpath(__DIR__ . './config.php'), 'calibre');
-    }
-
-    private function addDatabaseConnection()
-    {
-        $connection = [
-            'driver' => 'sqlite',
-            'database' => config('calibre.path') . '\\' . config('calibre.db'),
-            'prefix' => '',
-        ];
-        $this->app->make('config')->set('database.connections.calibre', $connection);
+        $this->mergeConfigFrom(realpath(__DIR__ . './Config.php'), 'calibre');
     }
 }

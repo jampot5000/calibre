@@ -1,7 +1,7 @@
 <?php
 namespace Jampot5000\Calibre;
 
-use Jampot5000\Calibre\Models\Author;
+use Jampot5000\Calibre\Config\CalibreConfig;
 
 /**
  * Class CalibreInterface
@@ -11,13 +11,32 @@ use Jampot5000\Calibre\Models\Author;
 class CalibreInterface
 {
     private $config;
+    private $authorRepository;
+    private $bookRepository;
 
-    /**
-     * Constructor
-     * @param $config Array of calibre configuration values.
-     */
-    public function __construct($config)
+    public function __construct(CalibreConfig $config)
     {
         $this->config = $config;
+
+        $this->config->boot();
+
+        $this->authorRepository = $this->config->getAuthorRepository();
+        $this->bookRepository   = $this->config->getBookRepository();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthorRepository()
+    {
+        return $this->authorRepository;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBookRepository()
+    {
+        return $this->bookRepository;
     }
 }

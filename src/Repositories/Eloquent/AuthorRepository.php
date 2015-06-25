@@ -30,8 +30,7 @@ class AuthorRepository implements BaseAuthorRepository
     public function all(array $columns = ['*'])
     {
         $authors = [];
-        foreach(Author::select($columns)->get() as $author)
-        {
+        foreach (Author::select($columns)->get() as $author) {
             $authors[] = $author;
         }
         return $authors;
