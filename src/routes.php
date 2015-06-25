@@ -9,15 +9,15 @@ if (app()->config['calibre']['registerRoute'] == 'true') {
         app()->config['calibre']['route'],
         function ($id, $format) {
             $bookMimes = [
-            'epub' => 'application/epub+zip',
-            'mobi' => 'application/x-mobipocket-ebook',
+                'epub' => 'application/epub+zip',
+                'mobi' => 'application/x-mobipocket-ebook',
             ];
             try {
                 $url = Book::findorFail($id)
-                ->files()
-                ->where('format', $format)
-                ->first()
-                ->path;
+                    ->files()
+                    ->where('format', $format)
+                    ->first()
+                    ->path;
 
                 $response = response()->download($url);
                 $response->headers->set('Content-Type', $bookMimes[\Illuminate\Support\Str::lower($format)]);

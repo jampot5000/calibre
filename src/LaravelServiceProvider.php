@@ -11,7 +11,7 @@ class LaravelServiceProvider extends ServiceProvider
         $this->setupConfig();
         $this->addDatabaseConnection();
         if (!$this->app->routesAreCached()) {
-            include __DIR__.'/routes.php';
+            include __DIR__ . '/routes.php';
         }
     }
 
@@ -36,18 +36,18 @@ class LaravelServiceProvider extends ServiceProvider
     {
         $this->publishes(
             [
-            __DIR__.'/config.php' => config_path('calibre.php'),
+                __DIR__ . '/config.php' => config_path('calibre.php'),
             ]
         );
-        $this->mergeConfigFrom(realpath(__DIR__.'./config.php'), 'calibre');
+        $this->mergeConfigFrom(realpath(__DIR__ . './config.php'), 'calibre');
     }
 
     private function addDatabaseConnection()
     {
         $connection = [
-                        'driver'   => 'sqlite',
-                        'database' => config('calibre.path') . '\\' . config('calibre.db'),
-                        'prefix'   => '',
+            'driver' => 'sqlite',
+            'database' => config('calibre.path') . '\\' . config('calibre.db'),
+            'prefix' => '',
         ];
         $this->app->make('config')->set('database.connections.calibre', $connection);
     }

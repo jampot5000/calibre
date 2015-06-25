@@ -11,7 +11,6 @@ return [
     */
 
     'path' => env('CALIBRE_PATH', '../testLibrary'),
-
     /*
     |--------------------------------------------------------------------------
     | Calibre DB File
@@ -20,8 +19,7 @@ return [
     | This is the actual database file, I'm not currently sure if this can be changed.
     | but it can stay here for the time being just incase.
     */
-    'db'   => env('CALIBRE_DB', 'metadata.db'),
-
+    'db' => env('CALIBRE_DB', 'metadata.db'),
     /*
     |--------------------------------------------------------------------------
     | Register Route
@@ -31,7 +29,6 @@ return [
     |
     */
     'registerRoute' => env('registerRoute', 'true'),
-
     /*
     |--------------------------------------------------------------------------
     | Download Route URL

@@ -17,8 +17,8 @@ class File extends Model
     public function getPathAttribute()
     {
         return realpath(app()->config['calibre']['path']
-                        . '/' . $this->book()->first()->path
-                        . "/" . $this->name . '.' . $this->format);
+            . '/' . $this->book()->first()->path
+            . "/" . $this->name . '.' . $this->format);
     }
 
     protected $appends = ["path"];
