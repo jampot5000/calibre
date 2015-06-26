@@ -4,6 +4,7 @@ namespace Jampot5000\Calibre\Config;
 
 use Jampot5000\Calibre\Repositories\Eloquent\AuthorRepository;
 use Jampot5000\Calibre\Repositories\Eloquent\BookRepository;
+use Illuminate\Support\Facades\Config;
 
 class LaravelCalibreConfig implements CalibreConfig
 {
@@ -35,13 +36,13 @@ class LaravelCalibreConfig implements CalibreConfig
     {
     }
 
-    private function addDatabaseConnection()
+    public function addDatabaseConnection()
     {
         $connection = [
             'driver' => 'sqlite',
             'database' => realpath($this->path . '\\' . $this->database),
             'prefix' => '',
         ];
-        $this->app->make('Config')->set('database.connections.calibre', $connection);
+        Config::set('database.connections.calibre', $connection);
     }
 }

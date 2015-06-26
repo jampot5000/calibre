@@ -10,7 +10,6 @@ class LaravelServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->setupConfig();
-        $this->addDatabaseConnection();
         if (!$this->app->routesAreCached()) {
             include __DIR__ . '/routes.php';
         }
@@ -25,21 +24,16 @@ class LaravelServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->singleton(
-            'CalibreInterface',
-            function ($app) {
-                return new CalibreInterface(new LaravelCalibreConfig($app->config['calibre']));
-            }
-        );
+        $this->app->instance('CalibreInterface',new CalibreInterface(new LaravelCalibreConfig($this->app->config['calibre'])));
     }
 
     private function setupConfig()
     {
         $this->publishes(
             [
-                __DIR__ . '/Config.php' => config_path('calibre.php'),
+                __DIR__ . '/config/config.php' => config_path('calibre.php'),
             ]
         );
-        $this->mergeConfigFrom(realpath(__DIR__ . './Config.php'), 'calibre');
+        $this->mergeConfigFrom(realpath(__DIR__ . '/config/config.php'), 'calibre');
     }
 }
