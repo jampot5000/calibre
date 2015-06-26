@@ -7,6 +7,8 @@ class File extends Model
 {
     protected $connection = 'calibre';
     protected $table = 'data';
+    protected $appends = ["path"];
+    protected $hidden = ["path","pivot"];
 
 
     public function book()
@@ -20,7 +22,4 @@ class File extends Model
             . '/' . $this->book()->first()->path
             . "/" . $this->name . '.' . $this->format);
     }
-
-    protected $appends = ["path"];
-    protected $hidden = ["path"];
 }

@@ -26,10 +26,14 @@ class LaravelServiceProvider extends ServiceProvider
     public function bindInterface()
     {
         $this->app->bind('Jampot5000\Calibre\Config\CalibreConfig', 'Jampot5000\Calibre\Config\LaravelCalibreConfig');
-        $this->app->bind('Jampot5000\Calibre\Repositories\Interfaces\AuthorRepository',
-                         'Jampot5000\Calibre\Repositories\Eloquent\AuthorRepository');
-        $this->app->bind('Jampot5000\Calibre\Repositories\Interfaces\BookRepository',
-                         'Jampot5000\Calibre\Repositories\Eloquent\BookRepository');
+        $this->app->bind(
+            'Jampot5000\Calibre\Repositories\Interfaces\AuthorRepository',
+            'Jampot5000\Calibre\Repositories\Eloquent\AuthorRepository'
+        );
+        $this->app->bind(
+            'Jampot5000\Calibre\Repositories\Interfaces\BookRepository',
+            'Jampot5000\Calibre\Repositories\Eloquent\BookRepository'
+        );
     }
 
     public function bindRepositories()
@@ -44,14 +48,16 @@ class LaravelServiceProvider extends ServiceProvider
 
     public function register()
     {
-
         $this->bindInterface();
 
         $this->app->bind('Jampot5000\Calibre\Config\LaravelCalibreConfig', function () {
-           return new LaravelCalibreConfig($this->app->config['calibre']);
+            return new LaravelCalibreConfig($this->app->config['calibre']);
         });
 
-        $this->app->instance('CalibreInterface',new CalibreInterface(new LaravelCalibreConfig($this->app->config['calibre'])));
+        $this->app->instance(
+            'CalibreInterface',
+            new CalibreInterface(new LaravelCalibreConfig($this->app->config['calibre']))
+        );
 
         $this->bindRepositories();
     }

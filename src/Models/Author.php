@@ -8,6 +8,7 @@ class Author extends Model implements AuthorBase
 {
     protected $connection = 'calibre';
     protected $table = 'authors';
+    protected $hidden = ['pivot'];
 
     public function books()
     {

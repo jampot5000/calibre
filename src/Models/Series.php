@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Series extends Model
 {
+    protected $hidden = ["pivot"];
+
     public function series()
     {
         return $this->belongsToMany('Jampot5000\Calibre\Models\Book', 'books_series_link', 'series', 'book');

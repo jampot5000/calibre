@@ -9,6 +9,7 @@ class Book extends Model implements BaseBook
 {
     protected $connection = 'calibre';
     protected $table = 'books';
+    protected $hidden = ['pivot'];
 
     public function authors()
     {
