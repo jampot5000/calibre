@@ -8,8 +8,8 @@
     },
     "require-dev": {
         "phpspec/phpspec": "^2.2",
-        "phpunit/phpunit": "^4.7",
-        "squizlabs/php_codesniffer": "^2.3"
+        "phpunit/phpunit": "^6.0 || ^7.0",
+        "squizlabs/php_codesniffer": "^2.3 || ^3.0"
     },
     "license": "MIT",
     "authors": [
