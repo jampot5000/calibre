@@ -10,13 +10,19 @@ PHP Calibre is an interface between laravel and calibre, exposing models for the
 
 Install with composer
 
-    composer require 'jampot5000/calibre':'0.0.1'
+```bash
+composer require 'jampot5000/calibre':'0.0.1'
+```
+
 Add the Laravel service provider in config/app.php
 
-    Jampot5000\Calibre\LaravelServiceProvider::class,
+```php
+Jampot5000\Calibre\LaravelServiceProvider::class,
+```
 
 Models can be accessed using:
-    
+
+
     \Jampot5000\Calibre\Models\Author
     \Jampot5000\Calibre\Models\Book
     \Jampot5000\Calibre\Models\File
