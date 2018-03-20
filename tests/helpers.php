@@ -1,8 +1,10 @@
 <?php
 
-function env($keyword, $default)
-{
-    return $default;
+if (! function_exists('env')) {
+    function env($keyword, $default)
+    {
+        return $default;
+    }
 }
 
 function setupDB()
