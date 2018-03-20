@@ -18,10 +18,14 @@
             "email": "jholcroft@gmail.com"
         }
     ],
-  "autoload": {
-    "psr-4": {
-      "Jampot5000\\Calibre\\": "src/",
-      "Jampot5000\\Calibre\\Tests\\": "tests/"
+    "autoload": {
+        "psr-4": {
+            "Jampot5000\\Calibre\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jampot5000\\Calibre\\Tests\\": "tests/"
+        }
     }
-  }
 }
