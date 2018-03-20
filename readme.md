@@ -22,11 +22,11 @@ Jampot5000\Calibre\LaravelServiceProvider::class,
 
 Models can be accessed using:
 
-
-    \Jampot5000\Calibre\Models\Author
-    \Jampot5000\Calibre\Models\Book
-    \Jampot5000\Calibre\Models\File
-
+```php
+\Jampot5000\Calibre\Models\Author
+\Jampot5000\Calibre\Models\Book
+\Jampot5000\Calibre\Models\File
+```
     
 ### Todo
 
